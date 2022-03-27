@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-header">Login</div>
+  <div class="card-body">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="form-label" for="email">Email </label>
+        <input
+          name="email"
+          formControlName="email"
+          type="email"
+          placeholder="sam123@gmail.com"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && userForm.controls['email'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && userForm.controls['email'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="userForm.controls['email'].errors.required">
+            Email is required
+          </div>
+          <div *ngIf="userForm.controls['email'].errors.email">
+            Email is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password">Password </label>
+        <input
+          name="password"
+          formControlName="password"
+          type="password"
+          placeholder="Hello@123$"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && userForm.controls['password'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && userForm.controls['password'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="userForm.controls['password'].errors.required">
+            Password is required
+          </div>
+          <div *ngIf="userForm.controls['password'].errors.minLength">
+            Password must be 8 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button routerLink="/sign-up" class="btn btn-primary active">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="invalid" class="card-footer">Invalid Credentials</div>
+</div>
+
+<div class="container">
+  <h1>Welcome to SnapShot,</h1>
+  <h1>Find Your Favorate Images & Make your Device Background Better</h1>
+</div>

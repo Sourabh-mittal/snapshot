@@ -1,0 +1,20 @@
+img {
+  margin: 10px;
+  box-shadow: 2px 2px 8px white;
+  transition: transform 0.5s;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin: 10px;
+}

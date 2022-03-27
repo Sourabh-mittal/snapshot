@@ -1,0 +1,41 @@
+<button class="btn btn-danger" (click)="logOut()">Log Out</button>
+<div class="container">
+  <h1>Welcome {{ userName }} to SnapShot</h1>
+  <div>
+    <input
+      type="text"
+      id="search-bar"
+      placeholder="Search"
+      class="form-control"
+      (input)="onSearch($event)"
+    />
+  </div>
+  <div>
+    <button class="btn btn-primary active" (click)="getImagesByTag('mountain')">
+      Mountain
+    </button>
+    <button class="btn btn-primary active" (click)="getImagesByTag('beaches')">
+      Beaches
+    </button>
+    <button class="btn btn-primary active" (click)="getImagesByTag('birds')">
+      Birds
+    </button>
+    <button class="btn btn-primary active" (click)="getImagesByTag('food')">
+      Food
+    </button>
+  </div>
+  <h3>{{ tag }} Images</h3>
+  <div *ngIf="imagesExist" class="wrapper">
+    <img
+      src="{{ img }}"
+      alt="No image"
+      *ngFor="let img of imgList"
+      width="300px"
+      height="200px"
+    />
+  </div>
+  <div *ngIf="!imagesExist">
+    <h1>No Images Found</h1>
+    <h3>try a different search</h3>
+  </div>
+</div>

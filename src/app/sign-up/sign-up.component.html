@@ -1,0 +1,93 @@
+<div class="card">
+  <div class="card-header">Register Yourself</div>
+  <div class="card-body">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="form-label" for="fullName">Name </label>
+        <input
+          name="fullName"
+          formControlName="fullName"
+          type="text"
+          placeholder="Sam Doe..."
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && userForm.controls['fullName'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && userForm.controls['fullName'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="userForm.controls['fullName'].errors.required">
+            First Name is required
+          </div>
+          <div *ngIf="userForm.controls['fullName'].errors.minLength">
+            Name must be 8 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email </label>
+        <input
+          name="email"
+          formControlName="email"
+          type="email"
+          placeholder="sam123@gmail.com"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && userForm.controls['email'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && userForm.controls['email'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="userForm.controls['email'].errors.required">
+            Email is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password">Password </label>
+        <input
+          name="password"
+          formControlName="password"
+          type="password"
+          placeholder="Hello@123$"
+          class="form-control"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$"
+          [ngClass]="{
+            'is-invalid': submitted && userForm.controls['password'].errors
+          }"
+        />
+        <div
+          *ngIf="submitted && userForm.controls['password'].errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="userForm.controls['password'].errors.required">
+            Password is required
+          </div>
+          <div
+            *ngIf="
+              userForm.controls['password'].errors.minLength ||
+              userForm.controls['password'].errors.pattern
+            "
+          >
+            Password must be 8 characters long, and must contain 1 special, 1
+            UpperCase, 1 LowerCase character & 1 number
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <button routerLink="/sign-in" class="btn btn-primary active">
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <h1>Welcome to SnapShot,</h1>
+  <h1>Find Your Favorate Images & Make your Device Background Better</h1>
+</div>

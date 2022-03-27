@@ -1,0 +1,18 @@
+button {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.card {
+  width: 100vh;
+  margin: 80px auto;
+  box-shadow: 2px 2px 8px white;
+  .card-header {
+    color: black;
+  }
+  .card-footer {
+    color: black;
+    border: 1px solid red;
+    background-color: rgb(251 221 221);
+  }
+}
